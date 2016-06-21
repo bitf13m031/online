@@ -1,0 +1,36 @@
+﻿@model newproject.Models.AddressTable
+@{
+    ViewBag.Title = "Order";
+
+}
+<div>
+    
+    
+    <form action="~/Home/finaladdress" method="post">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+
+<br>
+<br>
+        @Html.LabelFor(m => m.Phone)
+        @Html.TextBoxFor(m => m.Phone)
+        @Html.ValidationMessageFor(m => m.Phone)
+<br>
+<br>
+        @Html.LabelFor(m => m.Address)
+        @Html.TextBoxFor(m => m.Address)
+        @Html.ValidationMessageFor(m => m.Address)
+<br>
+<br>
+        @Html.LabelFor(m => m.email)
+        @Html.TextBoxFor(m => m.email)
+        @Html.ValidationMessageFor(m => m.email)
+<br>
+<br>
+
+
+    <input type="submit" value="Confirm" id="confirm" style="margin-left:21px" />
+    </form>
+
+</div>

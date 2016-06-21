@@ -1,0 +1,12 @@
+﻿@model newproject.Models.AddressTable
+@{
+    ViewBag.Title = "finaladdress";
+}
+
+<h2>finaladdress</h2>
+
+<label>NAME:</label><input type="text" value="@Model.Name" readonly><br>
+<label>ADDRESS:</label><input type="text" value="@Model.Address" readonly><br>
+<label>PHONE:</label><input type="text" value="@Model.Phone" readonly><br>
+<label>EMAIL:</label><input type="text" value="@Model.email" readonly><br>
+@Html.ActionLink("submit", "finalorder", new { id = Model.Id })  

@@ -1,0 +1,22 @@
+﻿@model newproject.Models.Cart
+@{
+    ViewBag.Title = "Cartpage";
+}
+
+<h2>Cartpage</h2>
+<div>
+
+    <form method="post" action="~/Home/addtocart">
+    <label>DESC</label><input type="text" id="desc" name="desc" value="@Model.desc" readonly /><br>
+    <label>PRICE</label><input type="text" id="price" name="price" value="@Model.price" readonly /><br>
+    <label>QUANTITY</label><input type="text" id="qty" name="qty" value=1 /><br>
+    <label> Size:</label>
+    <select id="size" name="size">
+        <option value="small">small</option>
+        <option value="medium">medium</option>
+        <option value="large">large</option>
+    </select>
+        <input type="submit" value="Add">
+        </form>
+
+</div>

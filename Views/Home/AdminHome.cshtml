@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "AdminHome";
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    $(document).ready(function () {
+        var f = function () {
+            $.getJSON("/Home/GetOrder", function (data) {
+                
+                var listHTML = "<div> <table><th>-------DESCTIPTION-------</th><th>-------PRICE-------</th><th>-------QUANTITY-------</th><th>-------TOTAL-------</th><th>-------SIZE-------</th><th>-------ADDRESS ID-------</th>";
+                for (var ord in data) {
+                    var i = data[ord].Id;
+                    listHTML = listHTML + "<tr><td align=center>" + data[ord].desc + "</td>";
+                    listHTML = listHTML + "<td align=center>" + data[ord].price + "</td>";
+                    listHTML = listHTML + "<td align=center>" + data[ord].qty + "</td>";
+                    listHTML = listHTML + "<td align=center>" + data[ord].total + "</td>";
+                    listHTML = listHTML + "<td align=center>" + data[ord].size + "</td>";
+                    listHTML = listHTML + "<td align=center>" + data[ord].Aid + "</td></tr>";
+                     
+                }
+
+                listHTML = listHTML + "</div>";
+                $("#d").append(listHTML)
+            })
+        }
+        $("#b1").click(f)
+
+
+        var ff = function () {
+            $.getJSON("/Home/GetAddress", function (dataa) {
+
+                var listHTMLl = "<div> <table><th>-------ID-------</th><th>-------NAME-------</th><th>-------ADDRESS-------</th><th>-------PHONE-------</th><th>-------EMAIL-------</th>";
+                for (var add in dataa) {
+                    listHTMLl = listHTMLl + "<tr><td align=center>" + dataa[add].Id + "</td>";
+                    listHTMLl = listHTMLl + "<td align=center>" + dataa[add].Name + "</td>";
+                    listHTMLl = listHTMLl + "<td align=center>" + dataa[add].Address + "</td>";
+                    listHTMLl = listHTMLl + "<td align=center>" + dataa[add].Phone + "</td>";
+                    listHTMLl = listHTMLl + "<td align=center>" + dataa[add].email + "</td></tr>";
+                }
+
+                listHTMLl = listHTMLl + "</div>";
+                $("#d").append(listHTMLl)
+            })
+        }
+        $("#d1").click(ff)
+    })
+    </script>
+<h2>AdminHome</h2>
+<input type="submit" id="b1" value="Show Orders" >
+<input type="submit" id="d1" value="Show Addresses">
+<input type="button" value="update" onclick="location.href='@Url.Action("delord", "Home")'">
+<div id="d">
+
+
+</div>

@@ -1,0 +1,33 @@
+﻿@model List<newproject.Models.Cart>
+@{
+    ViewBag.Title = "Cart";
+}
+<div>
+    <p style="font:bold 20px italic ;">Here is your Shopping cart.<br>Enjoy Shopping at fashionista. <br></p>
+    <div>
+        <div style="font: bold 20px italic;">
+
+            <p style="color:firebrick">QTY-----------------------------ITEM---------------------------------Price(PKR)----------------Total</p>
+            <br>
+          @{ int to=0; 
+            foreach(var crt in Model)
+            {
+                int t =Convert.ToInt32 (crt.total);
+             <input type="text" id="qty" value="@crt.qty" width="20"  readonly />
+            <input type="text" id="item" value="@crt.desc" width="20" readonly />
+            <input type="text" id="Rs" value="@crt.price" width="20" readonly />
+            <input type="text" id="total" value="@crt.total" width="30" readonly />
+             @Html.ActionLink("Delete", "Delete", new { id = crt.Id })  
+                to=to+t;
+            <br>
+            }
+              <label>grandtotal</label>
+              <input type="text" id="gtotal" value="@to" readonly />
+           } 
+            
+            <a>@Html.ActionLink("Order", "Order", "Home")</a>
+            <br>
+        </div>
+    </div>
+</div>
+

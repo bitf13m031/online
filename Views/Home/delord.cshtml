@@ -1,0 +1,22 @@
+﻿@model List<newproject.Models.TotalOrder>
+@{
+    ViewBag.Title = "delord";
+}
+
+<h2>UPDATE ORDERS</h2>
+<p style="color:firebrick">id------------des-----------qty----------size---------total</p>
+<br>
+@{ 
+            foreach(var crt in Model)
+            {
+                //int t =Convert.ToInt32 (crt.total);
+                <input type="text" id="qty" value="@crt.Id" width="20" readonly />
+                <input type="text" id="qty" value="@crt.desc" width="20" readonly />
+                <input type="text" id="item" value="@crt.qty" width="20" readonly />
+                <input type="text" id="Rs" value="@crt.size" width="20" readonly />
+                <input type="text" id="total" value="@crt.total" width="30" readonly />
+                @Html.ActionLink("Delete", "Del", new { id = crt.Id })
+                //to=to+t;
+                <br>
+            }
+ }
